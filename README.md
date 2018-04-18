@@ -1,2 +1,2 @@
 # blog
-![image](https://github.com/uniquefu/blog/blog.png)
+![image](https://github.com/uniquefu/blog/blob/master/blog.png)
