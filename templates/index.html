@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.css"/>
+
+    <link rel="stylesheet" href="/static/css/commons.css"/>
+    <link rel="stylesheet" href="/static/css/theme/default.css"/>
+	
+
+    <!--<script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="/static/plugins/bootstrap/js/bootstrap.js"></script>-->
+</head>
+<body style="margin:0;background:#dddddd;min-width:1030px;">
+ {% include 'include/header.html'%}
+
+	<div class="pg-main">
+		<div class ='pg-body'>
+			
+			<div class = "pg-content left">
+			{% for row in article_list %}	
+				<div class="item" >
+					<a href ="/{{row.blog.site}}/{{row.nid}}.html">
+						<div class='article_lists'>
+							<div style ="height:45px;line-height:45px;">
+								<h3 style ="text-align:center; padding:10px;">{{ row.title }}</h3>
+							</div>
+							<div style ="height:24px;line-height:24px;">			
+									<div class=" left label label-default" style="margin:0 3px;padding:5px;">{{ row.create_time|date:"Y年m月d日" }}</div>
+									<div class="left label label-warning" style="margin:0 3px;padding:5px;" >{{ row.get_category_id_display}}</div>
+									<div class="left label label-info" style="margin:0 3px;padding:5px;">{{ row.get_article_type_id_display }}</div>
+									<div class="left label label-success" style="margin:0 3px;padding:4px;">
+										<span class="glyphicon glyphicon-thumbs-up" ></span>
+										<span>{{row.up_count}}<span>
+									</div>
+									<div class="left label label-danger" style="margin:0 3px;padding:4px;">
+										<span class="glyphicon glyphicon-thumbs-down"  ></span>
+										<span> {{row.down_count}}<span>
+									</div>
+
+									<div class="right label label-primary" style="margin:0 3px;padding:5px;" >
+										<span >浏览</span>
+										<span>{{row.read_count}}<span>
+									</div>
+									<div class="right label label-info" style="margin:0 3px;padding:5px;">
+										<span >评论</span>
+										<span>{{row.comment_count}}<span>
+									</div>
+									<div style="clear: both"></div>
+							</div>
+							
+							<div style="padding:5px;">
+								{{row.summary}}
+							</div>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+					
+				<div class="clearfix">
+					<ul class="pagination">
+						{{ page_str }}
+					</ul>
+				</div>
+			</div>
+		
+			<div class = "pg-menu right"  >	
+				<div class="item">
+					<div style="padding:5px 0;">
+						<div >
+							<h4 style="font-weight:bold;">博客统计</h4>
+						</div>
+						<div style= "height:25px;line-height:25px;margin-left:10px;">
+							<span > 访问量: </span>
+							<span class="label label-default"> 12333</span>
+						</div>
+						<div style="height:25px;line-height:25px;">
+							<span> 博文总数: </span>
+							<span class="label label-default"> {{all.article}}</span>
+							<span> 评论总数: </span>
+							<span class="label label-default"> {{all.comment}}</span>
+						</div>
+						<div style="height:25px;line-height:25px;">
+							<span> 原创: </span>
+							<span class="label label-default"> {{all.原创}}</span>
+							<span> 翻译: </span>
+							<span class="label label-default"> {{all.翻译}}</span>
+							<span> 转载: </span>
+							<span class="label label-default"> {{all.转载}}</span>
+							<span> 其他: </span>
+							<span class="label label-default"> {{all.其他}}</span>
+						</div>
+					</div>
+				</div>	
+				<div style="height:20px;" ></div>
+				
+				<div class="item">
+					<div style="padding:5px 0;">
+						<div>
+							<h4 style="font-weight:bold;">关注技术</h4>
+						</div>
+						<div style="height:24px; ">
+							<a class="label label-default" style ="margin:0 3px;" href="/all/{{article_type_list.0.0}}.html">
+								{{article_type_list.0.1}}
+							</a>
+							<a class="label label-success" style ="margin:0 3px;" href="/all/{{article_type_list.1.0}}.html">
+								{{article_type_list.1.1}}
+							</a>
+							<a class="label label-warning" style ="margin:0 3px;" href="/all/{{article_type_list.2.0}}.html">
+								{{article_type_list.2.1}}
+							</a>
+						</div>
+						<div style="height:24px;">
+							<a class="label label-primary" style ="margin:0 3px;" href="/all/{{article_type_list.5.0}}.html">
+								{{article_type_list.5.1}}
+							</a>
+							<a class="label label-info" style ="margin:0 3px;" href="/all/{{article_type_list.4.0}}.html">
+								{{article_type_list.4.1}}
+							</a>
+							<a class="label label-danger" style ="margin:0 3px;" href="/all/{{article_type_list.3.0}}.html">
+								{{article_type_list.3.1}}
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div style="height:20px;"></div>
+				
+				<div class="item">
+					<div style="padding:5px 0;">
+						<h4 style="font-weight:bold;">联系我</h4>
+					</div>
+					<div style= "height:24px;">
+						<span> 个人博客网站: </span>
+						<a style ="background-color:#dddddd;"> http://abc: </a>
+					</div>
+					<div style= "height:24px;">
+						<span> 个人博客网站: </span>
+						<a  style ="background-color:#dddddd;"> http://abc: </a>
+					</div>
+					<div style= "height:24px;">
+						<span> 个人博客网站: </span>
+						<a class = style ="background-color:#dddddd;"> http://abc: </a>
+					</div>
+					
+					
+				</div>
+				
+				
+			
+			</div>
+	
+			<div style="clear: both;"></div>
+	
+		</div>
+		
+		
+	
+	</div>
+<!--<div class="container">
+    <div>
+        <div class="col-md-8">
+            <div class="article-list">
+                {% for row in article_list %}
+                    <div class="article-item clearfix">
+                        <h3><a href="#">{{ row.title }}</a></h3>
+                        <div class="clearfix">
+                            <a class="avatar left" href="#">
+                                <img src="/static/imgs/avatar/20130809170025.png">
+                            </a>
+                            {{ row.summary }}
+                        </div>
+                        <div class="footers">
+                            <a href="#">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                                <span>{{ row.blog.user.nickname }}</span>
+                            </a>
+                            <span>发布于 2014-11-11</span>
+                            <a href="#" class="ele">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <span>{{ row.comment_count }}</span>
+                            </a>
+                            <a href="#" class="ele">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <span>{{ row.up_count }}</span>
+                            </a>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="clearfix">
+
+                <ul class="pagination">
+                    {{ page_str }}
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default hot-recommend">
+                <div class="panel-heading">吐血推荐</div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Integer molestie lorem at massa</li>
+                        <li>Facilisis in pretium nisl aliquet</li>
+                        <li>Nulla volutpat aliquam velit
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel</li>
+                        <li>Aenean sit amet erat nunc</li>
+                        <li>Eget porttitor lorem</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default hot-comment">
+                <div class="panel-heading">评论最多</div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Integer molestie lorem at massa</li>
+                        <li>Facilisis in pretium nisl aliquet</li>
+                        <li>Nulla volutpat aliquam velit
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel</li>
+                        <li>Aenean sit amet erat nunc</li>
+                        <li>Eget porttitor lorem</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>-->
+
+</body>
+</html>

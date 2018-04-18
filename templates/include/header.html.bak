@@ -1,0 +1,37 @@
+﻿	<div class ="pg-header">
+		<div class = "w big">开源博客系统 </div>
+		
+		<div class = "w middle">让每个人拥有可管理的博客系统 ---by Jeff </div>
+
+		<div class ="bottom">
+			<div class ="w">
+				<div class ='left '>
+					{% if not article_type_id %}
+						<a class="menu" href="/">全部</a>
+						{% for item in article_type_list %}
+						<a class="menu" href="/category-{{item.0 }}"> {{ item.1 }}</a>
+						{% endfor %}
+				 </div>
+				<div class ='right'>
+					<!--<a class="menu" href = "/login.html">登录</a>
+					<a class="menu" href = "/register.html">注册</a>-->
+                {% if request.session.user_info %}
+                    <a class="menu" href="/backend/index.html">{{ request.session.user_info.nickname }}</a>
+                    {% if  request.session.user_info.blog__site %}
+
+                       <a class="menu" href="/{{ request.session.user_info.blog__site }}.html">我的博客</a>
+           
+                    {% endif %}
+                    <a class="menu" href="/backend/index.html">管理</a></li>
+        
+                    <a class="menu" href="/logout.html">退出</a></li>
+                {% else %}
+                    <a class="menu" href="/login.html">登陆</a></li>
+                    <a class="menu" href="/register.html">注册</a></li>
+                {% endif %}
+
+				</div>
+				<div style="clear: both"></div>
+			</div>
+		</div>
+	</div>

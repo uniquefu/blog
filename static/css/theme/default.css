@@ -1,0 +1,60 @@
+.pg-header{
+	height:105px;
+	position:fixed;
+	background:#dddddd;
+	left:0;
+	right:0;
+	top:0;
+	}
+
+.big{
+	font-size: 24px; 
+	color:#0090d0; 
+	font-weight: bold;	
+	width: 1030px;
+	height:35px;
+	}
+.middle{
+	font-weight: bold;	
+	height:30px;
+	}
+.w{
+	width: 1030px;
+	margin:0 auto;
+	}
+.bottom{
+	height:30px;
+	line-height:30px;
+	background-color:#2F72AB;
+	}
+.pg-main{
+	margin-top:100px;
+	overflow:auto;
+		}
+.pg-body{
+	width:1030px;
+	margin:0 auto;	
+		
+		}
+.pg-body .pg-content{
+	margin-top:20px;
+	width:700px;
+		
+	}
+.pg-body .pg-menu{
+	margin-top:40px;
+	width:300px;
+	}
+.item{
+	background-color:white;
+	padding:0 10px;
+	}
+.pg-header .menu{
+	display: inline-block;
+	padding: 0 10px 0 10px;
+	color: white;
+    }
+    /*当鼠标移动到当前标签上时，以下css属性才生效*/
+	.pg-header .menu:hover{
+		background-color: blue;
+    }
